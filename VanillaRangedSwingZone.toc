@@ -1,0 +1,32 @@
+## Interface: 16001
+## Title: Vanilla Ranged Swing Zone
+## Notes: Turns the fill of the Ranged bar of Blizzard's Swing Timer red in the last moments before each shot, when you have to stand still.
+## Notes-deDE: Färbt die Füllung der Leiste „Distanzwaffe“ von Blizzards Schwungtimer in den letzten Augenblicken vor jedem Schuss rot, wenn du stillstehen musst.
+## Notes-esES: Pone en rojo el relleno de la barra «A distancia» del temporizador de golpes de Blizzard en los últimos instantes antes de cada disparo, cuando tienes que quedarte quieto.
+## Notes-esMX: Pone en rojo el relleno de la barra «A distancia» del temporizador de golpes de Blizzard en los últimos instantes antes de cada disparo, cuando tienes que quedarte quieto.
+## Notes-frFR: Colore en rouge le remplissage de la barre « À distance » du rythme de frappe de Blizzard dans les derniers instants avant chaque tir, quand vous devez rester immobile.
+## Notes-itIT: Colora di rosso il riempimento della barra a distanza dello Swing Timer di Blizzard negli ultimi istanti prima di ogni tiro, quando devi restare fermo.
+## Notes-koKR: 매 사격 직전, 가만히 서 있어야 하는 마지막 순간에 블리자드 공격 타이머의 원거리 바 채움을 빨간색으로 바꿉니다.
+## Notes-ptBR: Deixa vermelho o preenchimento da barra "Longo alcance" do temporizador de ataque da Blizzard nos últimos instantes antes de cada disparo, quando você precisa ficar parado.
+## Notes-ruRU: Окрашивает в красный заполнение полосы «Дальний бой» интервала между ударами Blizzard в последние мгновения перед каждым выстрелом, когда нужно стоять на месте.
+## Notes-zhCN: 在每次射击前你必须站着不动的最后时刻，把暴雪自动攻击计时器中远程计时条的填充染成红色。
+## Notes-zhTW: 在每次射擊前你必須站著不動的最後時刻，把暴雪攻擊計時器中遠程計時條的填充染成紅色。
+## Author: Nedyar
+## Version: 0.1.0
+## SavedVariables: VanillaRangedSwingZoneDB
+## IconTexture: Interface\Icons\Ability_Whirlwind
+
+Locales\Locales.lua
+Locales\deDE.lua
+Locales\esES.lua
+Locales\esMX.lua
+Locales\frFR.lua
+Locales\itIT.lua
+Locales\koKR.lua
+Locales\ptBR.lua
+Locales\ruRU.lua
+Locales\zhCN.lua
+Locales\zhTW.lua
+Core.lua
+Zone.lua
+Options.lua
