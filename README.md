@@ -89,7 +89,8 @@ The path defaults to the folder that holds `Tests`. The tests shoot swings of
 several lengths and check when the fill turns red and back, and the zone's
 width, color and layer, with durations Blizzard ignores, secret ones, a bar
 that hides, is resized or loads after login, a weapon whose speed changes,
-and settings changed in the middle of a swing; they cover the
+settings changed in the middle of a swing, and a game that runs the
+addon's timing once more in the frame Blizzard's bar empties; they cover the
 options page, the slash commands, the saved settings, and every client
 language, which must translate exactly the texts the code uses, with the same
 placeholders. They also fail if the addon sets a global other than its saved

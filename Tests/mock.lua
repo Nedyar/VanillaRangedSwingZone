@@ -258,6 +258,38 @@ function M.Fire(event, ...)
     end
 end
 
+-- Runs this frame's OnUpdate scripts. With M.lineUp, the game lines up the
+-- frames that are shown before it runs any, so a frame that an earlier
+-- frame's OnUpdate hides still gets this frame's: a player's error report
+-- (0.1.0) shows the game can do that. A script error is reported, as the
+-- game does, and the other frames still run.
+local function RunUpdates(step)
+    if not M.lineUp then
+        for _, frame in ipairs(M.allFrames) do
+            local onUpdate = frame.scripts.OnUpdate
+            if onUpdate and M.Visible(frame) then
+                onUpdate(frame, step)
+            end
+        end
+        return
+    end
+    local queue = {}
+    for _, frame in ipairs(M.allFrames) do
+        if frame.scripts.OnUpdate and M.Visible(frame) then
+            queue[#queue + 1] = frame
+        end
+    end
+    for _, frame in ipairs(queue) do
+        local onUpdate = frame.scripts.OnUpdate
+        if onUpdate then
+            local ok, err = pcall(onUpdate, frame, step)
+            if not ok then
+                geterrorhandler()(err)
+            end
+        end
+    end
+end
+
 -- Moves the clock on in steps of a frame (1/50 s), running OnUpdate scripts
 -- and due timers on the way.
 function M.Advance(seconds)
@@ -265,12 +297,7 @@ function M.Advance(seconds)
     while M.time < target - 1e-9 do
         local step = math.min(0.02, target - M.time)
         M.time = M.time + step
-        for _, frame in ipairs(M.allFrames) do
-            local onUpdate = frame.scripts.OnUpdate
-            if onUpdate and M.Visible(frame) then
-                onUpdate(frame, step)
-            end
-        end
+        RunUpdates(step)
         local due = {}
         for i = #M.timers, 1, -1 do
             if M.timers[i].at <= M.time + 1e-9 then

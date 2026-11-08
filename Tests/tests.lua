@@ -196,6 +196,26 @@ M.Advance(3)
 eq(M.FillLook(), "plain", "still plain later")
 NoErrors("secret duration")
 
+-- The game may line up the frame's OnUpdate scripts before it runs any: when
+-- Blizzard's bar, which comes first, empties itself, the addon's timing still
+-- runs in that frame, after it has stopped.
+ns = NewSession()
+M.lineUp = true
+M.Shoot(3)
+M.Advance(2.6)
+eq(M.FillLook(), RED, "lined-up updates: red before the shot")
+M.Advance(0.5)
+eq(M.bar.swingDuration, nil, "lined-up updates: Blizzard emptied the bar")
+eq(M.FillLook(), "plain", "lined-up updates: the empty bar goes back to plain")
+check(not Ticking(), "lined-up updates: the timing stops with the bar")
+NoErrors("lined-up updates, the bar empties")
+M.Shoot(2.8)
+M.Advance(2.4)
+eq(M.FillLook(), RED, "lined-up updates: the next swing turns red on time")
+M.Advance(0.5)
+eq(M.FillLook(), "plain", "lined-up updates: and plain once it is over")
+NoErrors("lined-up updates, the next swing")
+
 -- The zone ------------------------------------------------------------------
 -- The bar is 200 px wide and the ranged weapon's speed 3 s, unless changed.
 

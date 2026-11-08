@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1 - Bug fix
+
+- Fixed a Lua error that could show up when a ranged swing ended: "Zone.lua:82: attempt to perform arithmetic on upvalue 'endTime' (a nil value)". It left nothing broken, but it should not have shown up at all.
+
 ## 0.1.0 - First release
 
 - **The ranged bar turns red before each shot**: on Blizzard's own Swing Timer, the fill of the Ranged bar changes color for the last half second before each shot, while Auto Shot aims and you have to stand still.

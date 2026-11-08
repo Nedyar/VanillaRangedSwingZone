@@ -78,7 +78,14 @@ local function LayoutZone()
     zone:Show()
 end
 
+-- The game may still run the ticker once after the swing is over: it can line
+-- up a frame's OnUpdate scripts before running any, and Blizzard's bar may
+-- empty itself, stopping the swing, earlier in that frame.
 local function Update()
+    if not endTime then
+        ticker:Hide()
+        return
+    end
     SetTinted(endTime - GetTime() <= ns.db.windup)
 end
 ticker:SetScript("OnUpdate", Update)

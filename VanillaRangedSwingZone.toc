@@ -12,7 +12,7 @@
 ## Notes-zhCN: 在每次射击前你必须站着不动的最后时刻，把暴雪自动攻击计时器中远程计时条的填充染成红色。
 ## Notes-zhTW: 在每次射擊前你必須站著不動的最後時刻，把暴雪攻擊計時器中遠程計時條的填充染成紅色。
 ## Author: Nedyar
-## Version: 0.1.0
+## Version: 0.1.1
 ## SavedVariables: VanillaRangedSwingZoneDB
 ## IconTexture: Interface\Icons\Ability_Whirlwind
 
